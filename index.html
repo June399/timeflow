@@ -971,7 +971,7 @@ function saveGoals(){CATS.forEach(c=>{goals[c.id]=parseInt(document.getElementBy
    ============================================================ */
 loadLocal();
 document.getElementById('date-header').textContent=new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
-renderCatNav();renderRecs();renderTodaySum();
+renderCatNav();renderRecs();renderTodaySum();renderSubCatSettings();
 document.getElementById('d-from').value=todayStr();
 document.getElementById('d-to').value=todayStr();
 if(records.length>0)document.getElementById('auto-badge').classList.remove('hidden');
