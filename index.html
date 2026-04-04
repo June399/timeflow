@@ -976,12 +976,12 @@ function addSubCat(catId){
   const label=inp.value.trim();if(!label)return;
   if(!subCats[catId])subCats[catId]=[];
   subCats[catId].push({id:'sub_'+Date.now(),label});
-  inp.value='';saveLocal(); syncSubCatsToSheet();renderSubCatSettings();
+  inp.value='';saveLocal();syncSubCatsToSheet();renderSubCatSettings();
 }
 function delSubCat(catId,subId){
   if(!confirm('하위 카테고리를 삭제할까요?'))return;
   if(subCats[catId])subCats[catId]=subCats[catId].filter(s=>s.id!==subId);
-  saveLocal(); syncSubCatsToSheet();renderSubCatSettings();
+  saveLocal();syncSubCatsToSheet();renderSubCatSettings();
 }
 function updatePctTotal(){
   const sum=CATS.reduce((a,c)=>{const v=parseInt(document.getElementById(`g-${c.id}`)?.value)||0;return a+v;},0);
