@@ -190,10 +190,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <span id="sync-msg">구글 시트 연결 확인 중...</span>
   </div>
 
-  <!-- 디버그 버튼 (확인 후 삭제 예정) -->
-  <div id="debug-area" style="background:#1a1a18;color:#1D9E75;font-size:11px;font-family:monospace;padding:10px;border-radius:8px;margin-bottom:10px;display:none;white-space:pre-wrap;max-height:200px;overflow-y:auto"></div>
-  <button onclick="debugSync()" style="width:100%;margin-bottom:10px;padding:8px;font-size:12px;border-radius:8px;border:0.5px dashed #D85A30;background:transparent;color:#D85A30;cursor:pointer">🔍 디버그: 구글 시트 데이터 확인</button>
-
   <!-- Tabs -->
   <div class="tabs">
     <button class="tab active" onclick="switchTab('record')">⏱ 기록</button>
@@ -708,34 +704,6 @@ function updatePctTotal(){
   el.style.color=sum===100?'var(--green)':sum>100?'var(--red)':'var(--text3)';
 }
 function saveGoals(){CATS.forEach(c=>{goals[c.id]=parseInt(document.getElementById(`g-${c.id}`).value)||0});saveLocal();alert('목표가 저장되었습니다!');}
-
-// 디버그 함수
-async function debugSync(){
-  const area=document.getElementById('debug-area');
-  area.style.display='block';
-  area.textContent='불러오는 중...';
-  try{
-    const data=await sheetApi({action:'getAll'});
-    const today=todayStr();
-    let msg=`오늘 날짜(todayStr): "${today}"
-`;
-    msg+=`불러온 레코드 수: ${data.records.length}개
-
-`;
-    data.records.slice(0,5).forEach((r,i)=>{
-      msg+=`[${i+1}번] date: "${r.date}" (타입:${typeof r.date})
-`;
-      msg+=`     date===today: ${String(r.date).trim()===today}
-`;
-      msg+=`     id: ${r.id}, catId: ${r.catId}
-
-`;
-    });
-    area.textContent=msg;
-  }catch(e){
-    area.textContent='오류: '+e.message;
-  }
-}
 
 // Init
 loadLocal();
