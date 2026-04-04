@@ -411,9 +411,6 @@ function loadLocal(){
 /* ============================================================
    Sync UI
    ============================================================ */
-// setSyncStatus(...) 바로 위에 추가
-await syncSubCatsFromSheet();
-setSyncStatus('ok',`구글 시트 연동 중 · ${records.length}개 불러옴`);
   
   function setSyncStatus(state,msg){
   const dot=document.getElementById('sync-dot'),txt=document.getElementById('sync-msg');
@@ -476,6 +473,7 @@ async function syncFromSheet(){
     }).sort((a,b)=>b.id-a.id);
     saveLocal();renderRecs();renderTodaySum();
     document.getElementById('rec-count').textContent=records.length;
+    await syncSubCatsFromSheet();
     setSyncStatus('ok',`구글 시트 연동 중 · ${records.length}개 불러옴`);
   }catch(e){setSyncStatus('err','불러오기 실패 — 로컬 데이터 표시 중');}
 }
