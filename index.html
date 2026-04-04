@@ -395,6 +395,8 @@ function saveLocal(){
     localStorage.setItem('tf_selCat',selCat);
     localStorage.setItem('tf_subCats',JSON.stringify(subCats));
   }catch(e){}
+    syncSubCatsToSheet();
+
 }
 function loadLocal(){
   try{
@@ -409,7 +411,11 @@ function loadLocal(){
 /* ============================================================
    Sync UI
    ============================================================ */
-function setSyncStatus(state,msg){
+// setSyncStatus(...) 바로 위에 추가
+await syncSubCatsFromSheet();
+setSyncStatus('ok',`구글 시트 연동 중 · ${records.length}개 불러옴`);
+  
+  function setSyncStatus(state,msg){
   const dot=document.getElementById('sync-dot'),txt=document.getElementById('sync-msg');
   dot.className='sync-dot'+(state==='ok'?' ok':state==='err'?' err':state==='ing'?' ing':'');
   txt.textContent=msg;
@@ -478,6 +484,27 @@ async function deleteFromSheet(id){
   try{const p={key:SECRET_KEY,action:'delete',id:String(id)};await xhrGet(scriptUrl+'?'+new URLSearchParams(p).toString());}
   catch(e){console.warn('시트 삭제 실패',e);}
 }
+async function syncSubCatsToSheet(){
+  if(!scriptUrl)return;
+  try{
+    const p={key:SECRET_KEY,action:'saveSubCats',subCats:JSON.stringify(subCats)};
+    await xhrGet(scriptUrl+'?'+new URLSearchParams(p).toString());
+  }catch(e){console.warn('subCats 시트 저장 실패',e);}
+}
+async function syncSubCatsFromSheet(){
+  if(!scriptUrl)return;
+  try{
+    const p={key:SECRET_KEY,action:'getSubCats'};
+    const data=await xhrGet(scriptUrl+'?'+new URLSearchParams(p).toString());
+    if(data.success&&data.subCats){
+      subCats=JSON.parse(data.subCats);
+      localStorage.setItem('tf_subCats',JSON.stringify(subCats));
+      renderSubCatSettings();
+      renderCatNav();
+    }
+  }catch(e){console.warn('subCats 불러오기 실패',e);}
+}
+  
 async function updateToSheet(record){
   if(!scriptUrl)return;
   try{
