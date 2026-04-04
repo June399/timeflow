@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0iIzBkMGQwZCIvPgogIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjE5MCIgcj0iMTQwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxRDlFNzUiIHN0cm9rZS13aWR0aD0iMTQiLz4KICA8cmVjdCB4PSIyODAiIHk9IjQ0IiB3aWR0aD0iODAiIGhlaWdodD0iMTgiIHJ4PSI5IiBmaWxsPSIjMUQ5RTc1IiBvcGFjaXR5PSIwLjciLz4KICA8bGluZSB4MT0iMzIwIiB5MT0iNTYiIHgyPSIzMjAiIHkyPSI3NiIgc3Ryb2tlPSIjMUQ5RTc1IiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSI0NTQiIHkxPSIxOTAiIHgyPSI0MzQiIHkyPSIxOTAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMzIwIiB5MT0iMzI0IiB4Mj0iMzIwIiB5Mj0iMzA0IiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjE4NiIgeTE9IjE5MCIgeDI9IjIwNiIgeTI9IjE5MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSIzMjAiIHkxPSIxOTAiIHgyPSIzMjAiIHkyPSI4NiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMzIwIiB5MT0iMTkwIiB4Mj0iMzg0IiB5Mj0iMjI4IiBzdHJva2U9IiMxRDlFNzUiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjE5MCIgcj0iMTIiIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSIxOTAiIHI9IjUiIGZpbGw9IiMwZDBkMGQiLz4KICA8dGV4dCB4PSI2MCIgeT0iMTgwIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSxCbGlua01hY1N5c3RlbUZvbnQsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI3NiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI2ZmZmZmZiIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5UPC90ZXh0PgogIDx0ZXh0IHg9IjYwIiB5PSIyNzAiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLEJsaW5rTWFjU3lzdGVtRm9udCxzYW5zLXNlcmlmIiBmb250LXNpemU9Ijc2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMUQ5RTc1IiBsZXR0ZXItc3BhY2luZz0iLTIiPkY8L3RleHQ+CiAgPHRleHQgeD0iNjAiIHk9IjQ1NiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sQmxpbmtNYWNTeXN0ZW1Gb250LHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDQiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgbGV0dGVyLXNwYWNpbmc9IjEiPlRpbWVGbG93PC90ZXh0Pgo8L3N2Zz4=">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0iIzBkMGQwZCIvPgogIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjE5MCIgcj0iMTQwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxRDlFNzUiIHN0cm9rZS13aWR0aD0iMTQiLz4KICA8cmVjdCB4PSIyODAiIHk9IjQ0IiB3aWR0aD0iODAiIGhlaWdodD0iMTgiIHJ4PSI5IiBmaWxsPSIjMUQ5RTc1IiBvcGFjaXR5PSIwLjciLz4KICA8bGluZSB4MT0iMzIwIiB5MT0iNTYiIHgyPSIzMjAiIHkyPSI3NiIgc3Ryb2tlPSIjMUQ5RTc1IiBzdHJva2Utd2lkdGg9IjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSI0NTQiIHkxPSIxOTAiIHgyPSI0MzQiIHkyPSIxOTAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjE4KSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMzIwIiB5MT0iMzI0IiB4Mj0iMzIwIiB5Mj0iMzA0IiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xOCkiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjE4NiIgeTE9IjE5MCIgeDI9IjIwNiIgeTI9IjE5MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMTgpIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSIzMjAiIHkxPSIxOTAiIHgyPSIzMjAiIHkyPSI4NiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMzIwIiB5MT0iMTkwIiB4Mj0iMzg0IiB5Mj0iMjI4IiBzdHJva2U9IiMxRDlFNzUiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxjaXJjbGUgY3g9IjMyMCIgY3k9IjE5MCIgcj0iMTIiIGZpbGw9IiNmZmZmZmYiLz4KICA8Y2lyY2xlIGN4PSIzMjAiIGN5PSIxOTAiIHI9IjUiIGZpbGw9IiMwZDBkMGQiLz4KICA8dGV4dCB4PSI2MCIgeT0iMTgwIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSxCbGlua01hY1N5c3RlbUZvbnQsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI3NiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iI2ZmZmZmZiIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5UPC90ZXh0PgogIDx0ZXh0IHg9IjYwIiB5PSIyNzAiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLEJsaW5rTWFjU3lzdGVtRm9udCxzYW5zLXNlcmlmIiBmb250LXNpemU9Ijc2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMUQ5RTc1IiBsZXR0ZXItc3BhY2luZz0iLTIiPkY8L3RleHQ+CiAgPHRleHQgeD0iNjAiIHk9IjQ1NiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sQmxpbmtNYWNTeXN0ZW1Gb250LHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDQiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSIgbGV0dGVyLXNwYWNpbmc9IjEiPlRpbWVGbG93PC90ZXh0Pgo8L3N2Zz4=">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TimeFlow">
+<meta name="theme-color" content="#1a1a18">
+<title>TimeFlow</title>
+<style>
+/* ===== 수정 필요한 부분 =====
+   아래 SCRIPT_URL 값을 본인의 Apps Script 웹 앱 URL로 교체하세요.
+   예: const SCRIPT_URL = 'https://script.google.com/macros/s/ABC.../exec';
+   ========================== */
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f5f4f0;--bg3:#eeedea;
+  --text:#1a1a18;--text2:#6b6b67;--text3:#9b9b97;
+  --border:rgba(0,0,0,0.1);--border2:rgba(0,0,0,0.18);
+  --radius:12px;--radius-sm:8px;
+  --green:#1D9E75;--green-d:#0F6E56;
+  --red:#D85A30;--red-d:#993C1D;
+  --purple:#534AB7;--purple-d:#3C3489;--purple-bg:#EEEDFE;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#1c1c1a;--bg2:#252523;--bg3:#2e2e2b;
+  --text:#e8e6de;--text2:#9b9b97;--text3:#6b6b67;
+  --border:rgba(255,255,255,0.1);--border2:rgba(255,255,255,0.18);
+}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg3);color:var(--text);min-height:100vh;padding-bottom:40px}
+.app{max-width:560px;margin:0 auto;padding:0 16px}
+
+/* Header */
+.header{padding:20px 0 0;text-align:center;margin-bottom:16px}
+.header h1{font-size:22px;font-weight:600;letter-spacing:-0.5px}
+.header p{font-size:12px;color:var(--text3);margin-top:3px}
+
+/* Tabs */
+.tabs{display:flex;background:var(--bg2);border-radius:var(--radius);padding:4px;margin-bottom:16px;gap:4px}
+.tab{flex:1;padding:8px;font-size:13px;text-align:center;cursor:pointer;border-radius:var(--radius-sm);color:var(--text2);border:none;background:transparent;transition:all .15s;font-weight:400}
+.tab.active{background:var(--bg);color:var(--text);font-weight:500;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.pane{display:none}.pane.active{display:block}
+
+/* Cards */
+.card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:12px}
+.card-title{font-size:12px;font-weight:500;color:var(--text3);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+
+/* Sync status */
+.sync-bar{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text3);padding:8px 12px;background:var(--bg2);border-radius:var(--radius-sm);margin-bottom:12px}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--text3);flex-shrink:0}
+.sync-dot.ok{background:var(--green)}
+.sync-dot.err{background:var(--red)}
+.sync-dot.ing{background:#f59e0b;animation:pulse .8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* Timer */
+.timer-display{text-align:center;font-size:52px;font-weight:300;letter-spacing:3px;font-variant-numeric:tabular-nums;margin-bottom:16px;line-height:1;color:var(--text)}
+.timer-display.running{color:var(--green)}
+
+/* Cat pills */
+.cat-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.cat-pill{padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:1.5px solid transparent;transition:all .15s;font-weight:400}
+.cat-pill.selected{font-weight:500}
+.cat-pill:hover{filter:brightness(.95)}
+.auto-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--text3);background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:3px 9px;margin-bottom:10px}
+.auto-badge.hidden{display:none}
+
+/* Inputs */
+.inp{width:100%;padding:9px 13px;font-size:14px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--bg2);color:var(--text);outline:none;margin-bottom:10px;transition:border-color .15s}
+.inp:focus{border-color:var(--purple)}
+.inp::placeholder{color:var(--text3)}
+
+/* Buttons */
+.btn-row{display:flex;gap:8px}
+.btn{flex:1;padding:11px;font-size:14px;font-weight:500;border-radius:var(--radius-sm);border:0.5px solid var(--border2);cursor:pointer;transition:all .15s;background:transparent;color:var(--text)}
+.btn:hover{background:var(--bg2)}
+.btn:active{transform:scale(.98)}
+.btn-green{background:var(--green);color:#fff;border-color:var(--green)}.btn-green:hover{background:var(--green-d)}
+.btn-red{background:var(--red);color:#fff;border-color:var(--red)}.btn-red:hover{background:var(--red-d)}
+.btn-purple{background:var(--purple);color:#fff;border-color:var(--purple);width:100%;margin-top:10px;flex:none}.btn-purple:hover{background:var(--purple-d)}
+.btn-sm{font-size:12px;padding:5px 11px;flex:0 0 auto}
+
+/* Mid memo */
+.mid-btn{width:100%;font-size:12px;color:var(--text3);background:transparent;border:0.5px dashed var(--border2);border-radius:var(--radius-sm);padding:6px;cursor:pointer;margin-top:8px;transition:all .15s}
+.mid-btn:hover{border-color:var(--border2);color:var(--text2)}
+.mid-row{display:flex;gap:6px;margin-top:6px}
+.mid-inp{flex:1;padding:7px 11px;font-size:13px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--bg2);color:var(--text);outline:none}
+
+/* Records */
+.rec-item{padding:13px 0;border-bottom:0.5px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+.rec-item:last-child{border-bottom:none}
+.rec-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.rec-body{flex:1;min-width:0}
+.rec-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.rec-time{font-size:15px;font-weight:500;font-variant-numeric:tabular-nums}
+.rec-badge{font-size:11px;padding:2px 8px;border-radius:10px}
+.rec-ts{font-size:11px;color:var(--text3)}
+.rec-memo{font-size:13px;color:var(--text2);margin-top:3px}
+.rec-actions{display:flex;gap:2px;flex-shrink:0}
+.icon-btn{font-size:13px;cursor:pointer;color:var(--text3);background:transparent;border:none;padding:3px 5px;border-radius:6px;transition:all .15s}
+.icon-btn:hover{color:var(--text);background:var(--bg2)}
+.empty{padding:36px 16px;text-align:center;font-size:13px;color:var(--text3)}
+.edit-inp{font-size:13px;padding:4px 8px;border:0.5px solid var(--border2);border-radius:6px;background:var(--bg2);color:var(--text);width:100%;margin-top:4px;outline:none}
+
+/* Today summary */
+.chart-row{display:flex;align-items:center;gap:20px}
+.legend{flex:1;display:flex;flex-direction:column;gap:7px}
+.leg-item{display:flex;align-items:center;gap:7px;font-size:13px}
+.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.leg-lbl{flex:1;color:var(--text2)}
+.leg-val{font-weight:500}
+.leg-pct{font-size:12px;color:var(--text3);min-width:34px;text-align:right}
+.total-lbl{text-align:center;font-size:13px;color:var(--text2);margin-top:10px}
+.total-lbl span{font-weight:500;color:var(--text)}
+
+/* Goal bars */
+.goal-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.goal-lbl{width:82px;flex-shrink:0;font-size:12px;color:var(--text2)}
+.goal-bar-bg{flex:1;height:8px;border-radius:4px;background:var(--bg2);overflow:visible;position:relative}
+.goal-bar-fill{height:100%;border-radius:4px;transition:width .5s}
+.goal-bar-target{position:absolute;top:-3px;bottom:-3px;width:2px;border-radius:1px;background:var(--text3)}
+.goal-vals{font-size:12px;color:var(--text3);min-width:62px;text-align:right}
+
+/* Period buttons */
+.date-sel{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.period-btn{padding:5px 13px;font-size:12px;border-radius:16px;border:0.5px solid var(--border2);cursor:pointer;background:transparent;color:var(--text2);transition:all .15s}
+.period-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.period-btn:hover:not(.active){background:var(--bg2)}
+.date-range{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--text2)}
+.date-inp{padding:5px 9px;font-size:12px;border:0.5px solid var(--border2);border-radius:6px;background:var(--bg2);color:var(--text)}
+
+/* AI panel */
+.ai-panel{border:0.5px solid var(--border);border-radius:var(--radius);padding:16px;margin-top:12px;background:var(--bg)}
+.improve-opts{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.improve-opt{padding:10px 14px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);cursor:pointer;font-size:13px;background:transparent;color:var(--text);text-align:left;transition:all .15s}
+.improve-opt:hover{background:var(--bg2)}
+.improve-opt.selected{border-color:var(--purple);background:var(--purple-bg);color:var(--purple-d)}
+.ai-result{font-size:13px;line-height:1.75;color:var(--text);white-space:pre-wrap;padding:14px;border-radius:var(--radius-sm);background:var(--bg2);margin-top:10px}
+
+/* Settings */
+.setting-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:0.5px solid var(--border)}
+.setting-row:last-child{border-bottom:none}
+.setting-lbl{flex:1;font-size:13px}
+.setting-sub{font-size:12px;color:var(--text3);margin-top:2px}
+.pct-inp{width:58px;padding:6px 8px;font-size:13px;border:0.5px solid var(--border2);border-radius:6px;background:var(--bg2);color:var(--text);text-align:center}
+.pct-total{text-align:right;font-size:12px;margin-top:8px}
+
+/* Trend */
+.trend-row{display:flex;align-items:flex-end;gap:3px;height:72px;margin-bottom:3px}
+.trend-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+.trend-bar{width:100%;border-radius:3px 3px 0 0;min-height:2px}
+.trend-lbl{font-size:9px;color:var(--text3)}
+
+/* Modal overlay */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px}
+.modal{background:var(--bg);border:0.5px solid var(--border2);border-radius:var(--radius);padding:22px;width:100%;max-width:340px}
+.modal-title{font-size:16px;font-weight:600;margin-bottom:3px}
+.modal-sub{font-size:12px;color:var(--text3);margin-bottom:14px}
+.modal-time{font-size:32px;font-weight:300;text-align:center;font-variant-numeric:tabular-nums;color:var(--green);margin-bottom:16px;letter-spacing:2px}
+.modal-btns{display:flex;gap:8px;margin-top:4px}
+.modal-btn{flex:1;padding:10px;font-size:13px;font-weight:500;border-radius:var(--radius-sm);cursor:pointer;border:0.5px solid var(--border2);background:transparent;color:var(--text);transition:all .15s}
+.modal-btn:hover{background:var(--bg2)}
+.modal-btn-save{background:var(--green);color:#fff;border-color:var(--green)}.modal-btn-save:hover{background:var(--green-d)}
+.modal-hint{font-size:11px;color:var(--text3);text-align:center;margin-top:10px}
+
+/* Setup modal */
+.setup-modal{background:var(--bg);border-radius:var(--radius);padding:28px;width:100%;max-width:400px}
+.setup-modal h2{font-size:18px;font-weight:600;margin-bottom:6px}
+.setup-modal p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:16px}
+.setup-inp{width:100%;padding:10px 13px;font-size:13px;border:0.5px solid var(--border2);border-radius:var(--radius-sm);background:var(--bg2);color:var(--text);outline:none;margin-bottom:8px;font-family:monospace}
+.setup-inp:focus{border-color:var(--purple)}
+.setup-hint{font-size:11px;color:var(--text3);margin-bottom:16px;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <h1>TimeFlow</h1>
+    <p id="date-header"></p>
+  </div>
+
+  <!-- Sync bar -->
+  <div class="sync-bar" id="sync-bar">
+    <div class="sync-dot" id="sync-dot"></div>
+    <span id="sync-msg">구글 시트 연결 확인 중...</span>
+  </div>
+
+  <!-- 디버그 버튼 (확인 후 삭제 예정) -->
+  <div id="debug-area" style="background:#1a1a18;color:#1D9E75;font-size:11px;font-family:monospace;padding:10px;border-radius:8px;margin-bottom:10px;display:none;white-space:pre-wrap;max-height:200px;overflow-y:auto"></div>
+  <button onclick="debugSync()" style="width:100%;margin-bottom:10px;padding:8px;font-size:12px;border-radius:8px;border:0.5px dashed #D85A30;background:transparent;color:#D85A30;cursor:pointer">🔍 디버그: 구글 시트 데이터 확인</button>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('record')">⏱ 기록</button>
+    <button class="tab" onclick="switchTab('result')">📊 결과</button>
+    <button class="tab" onclick="switchTab('settings')">⚙️ 설정</button>
+  </div>
+
+  <!-- RECORD TAB -->
+  <div class="pane active" id="pane-record">
+    <div class="card">
+      <div class="timer-display" id="timer">00:00:00</div>
+      <div class="auto-badge hidden" id="auto-badge">↩ 직전 카테고리 자동 선택됨</div>
+      <div class="cat-row" id="cat-row"></div>
+      <input class="inp" id="main-memo" placeholder="활동 내용 (선택사항)" />
+      <div class="btn-row" id="btn-row">
+        <button class="btn btn-green" onclick="startTimer()">▶ 시작</button>
+      </div>
+      <div id="mid-area" style="display:none">
+        <button class="mid-btn" onclick="showMidMemo()">+ 중간 메모 추가</button>
+        <div id="mid-row" style="display:none" class="mid-row">
+          <input class="mid-inp" id="mid-inp" placeholder="진행 중 메모..." />
+          <button class="btn btn-sm" onclick="saveMid()">저장</button>
+        </div>
+        <div id="mid-list" style="margin-top:6px;font-size:12px;color:var(--text2)"></div>
+      </div>
+    </div>
+
+    <div class="card" id="today-sum" style="display:none">
+      <div class="card-title">오늘 요약</div>
+      <div class="chart-row">
+        <canvas id="donut-today" width="90" height="90" style="flex-shrink:0"></canvas>
+        <div class="legend" id="legend-today"></div>
+      </div>
+      <div class="total-lbl" id="total-today"></div>
+    </div>
+
+    <div class="card" style="padding:0">
+      <div style="padding:13px 16px;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:13px;font-weight:500;color:var(--text2)">오늘의 기록</span>
+        <button class="icon-btn" onclick="clearToday()">🗑️ 초기화</button>
+      </div>
+      <div style="padding:0 16px" id="rec-list"><div class="empty">아직 기록이 없습니다</div></div>
+    </div>
+  </div>
+
+  <!-- RESULT TAB -->
+  <div class="pane" id="pane-result">
+    <div class="card">
+      <div class="card-title">기간 선택</div>
+      <div class="date-sel">
+        <button class="period-btn active" onclick="setPeriod('today',this)">오늘</button>
+        <button class="period-btn" onclick="setPeriod('week',this)">이번 주</button>
+        <button class="period-btn" onclick="setPeriod('month',this)">이번 달</button>
+        <button class="period-btn" onclick="setPeriod('custom',this)">직접 설정</button>
+      </div>
+      <div id="custom-range" style="display:none" class="date-range">
+        <input type="date" class="date-inp" id="d-from" />
+        <span>~</span>
+        <input type="date" class="date-inp" id="d-to" />
+        <button class="btn btn-sm" onclick="renderResult()">조회</button>
+      </div>
+    </div>
+    <div class="card" id="result-donut-card" style="display:none">
+      <div class="card-title" id="result-period-lbl"></div>
+      <div class="chart-row">
+        <canvas id="donut-result" width="100" height="100" style="flex-shrink:0"></canvas>
+        <div class="legend" id="legend-result"></div>
+      </div>
+      <div class="total-lbl" id="total-result"></div>
+    </div>
+    <div class="card" id="goal-card" style="display:none">
+      <div class="card-title">목표 대비 실제 <span style="font-size:10px;font-weight:400;color:var(--text3)">│ 세로선 = 목표</span></div>
+      <div id="goal-bars"></div>
+    </div>
+    <div class="card" id="trend-card" style="display:none">
+      <div class="card-title">일별 추이</div>
+      <div id="trend-area"></div>
+    </div>
+    <div class="ai-panel" id="ai-panel" style="display:none">
+      <div style="font-size:14px;font-weight:500;margin-bottom:4px">🤖 AI 개선 방안</div>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:12px">무엇을 개선하고 싶으신가요?</p>
+      <div class="improve-opts">
+        <button class="improve-opt" onclick="selectGoal(this,'낭비 시간을 줄이고 싶다')">⚠️ 낭비 시간을 줄이고 싶다</button>
+        <button class="improve-opt" onclick="selectGoal(this,'미래투자 시간을 늘리고 싶다')">🚀 미래투자 시간을 늘리고 싶다</button>
+        <button class="improve-opt" onclick="selectGoal(this,'전체 카테고리 밸런스를 개선하고 싶다')">⚖️ 전체 밸런스를 개선하고 싶다</button>
+        <button class="improve-opt" onclick="selectGoal(this,'직장 업무 효율을 높이고 싶다')">💼 직장 업무 효율을 높이고 싶다</button>
+        <button class="improve-opt" onclick="selectGoal(this,'취미·여가 시간을 확보하고 싶다')">🎯 취미·여가 시간을 확보하고 싶다</button>
+      </div>
+      <button class="btn btn-purple" onclick="runAI()">분석 리포트 생성 →</button>
+      <div id="ai-result" style="display:none" class="ai-result"></div>
+    </div>
+  </div>
+
+  <!-- SETTINGS TAB -->
+  <div class="pane" id="pane-settings">
+    <div class="card">
+      <div class="card-title">구글 시트 연동</div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:10px">Apps Script 웹 앱 URL을 입력하세요.</div>
+      <input class="inp" id="script-url-inp" placeholder="https://script.google.com/macros/s/.../exec" style="font-size:12px;font-family:monospace" />
+      <button class="btn" style="width:100%" onclick="saveScriptUrl()">URL 저장 및 연결 테스트</button>
+      <div id="url-status" style="font-size:12px;margin-top:8px;color:var(--text3)"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">카테고리별 목표 비중</div>
+      <div id="goal-settings"></div>
+      <div class="pct-total" id="pct-total"></div>
+      <button class="btn" style="width:100%;margin-top:12px" onclick="saveGoals()">저장</button>
+    </div>
+    <div class="card">
+      <div class="card-title">데이터</div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:10px">총 <span id="rec-count">0</span>개의 기록 (구글 시트 기준)</div>
+      <button class="btn" style="width:100%;margin-top:6px" onclick="syncFromSheet()">구글 시트에서 불러오기 ↓</button>
+    </div>
+  </div>
+</div>
+
+<!-- 종료 확인 모달 -->
+<div class="overlay" id="stop-modal" style="display:none">
+  <div class="modal">
+    <div class="modal-title">활동 종료</div>
+    <div class="modal-sub">카테고리를 확인하고 저장하세요</div>
+    <div class="modal-time" id="modal-time">00:00:00</div>
+    <div class="cat-row" id="modal-cat-row"></div>
+    <input class="inp" id="modal-memo" placeholder="활동 내용 메모 (선택사항)" />
+    <div class="modal-btns">
+      <button class="modal-btn" onclick="cancelStop()">계속 진행</button>
+      <button class="modal-btn modal-btn-save" onclick="confirmStop()">저장</button>
+    </div>
+    <div class="modal-hint">소요시간은 저장 후 수정할 수 없습니다</div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ★★★ 여기를 수정하세요 ★★★
+   본인의 Apps Script 웹 앱 URL을 붙여넣으세요.
+   예) const SCRIPT_URL = 'https://script.google.com/macros/s/ABC123.../exec';
+   ============================================================ */
+const SCRIPT_URL_DEFAULT = 'https://script.google.com/macros/s/AKfycbxS5HXlZu9_cQOgkqcfxxVN4cHucVgPWu27-a8M4EGUpI0PwxLHifh7i-wUf3tbyR5ugw/exec';  // ← 여기에 URL 입력
+const SECRET_KEY = 'timeflow2026'; // Apps Script 코드의 SECRET_KEY와 동일하게
+
+// ============================================================
+
+const CATS = [
+  {id:'work',  label:'💼 직장',   color:'#185FA5',bg:'#E6F1FB',text:'#0C447C'},
+  {id:'invest',label:'🚀 미래투자',color:'#0F6E56',bg:'#E1F5EE',text:'#085041'},
+  {id:'hobby', label:'🎯 취미',   color:'#534AB7',bg:'#EEEDFE',text:'#3C3489'},
+  {id:'life',  label:'😴 생활',   color:'#5F5E5A',bg:'#F1EFE8',text:'#444441'},
+  {id:'waste', label:'⚠️ 낭비',   color:'#A32D2D',bg:'#FCEBEB',text:'#791F1F'},
+];
+
+let records = [], goals = {work:50,invest:20,hobby:15,life:10,waste:5};
+let selCat = 'work', timerInt = null, startTime = null, elapsed = 0, running = false, midMemos = [];
+let modalSelCat = 'work';
+let periodMode = 'today', goalSel = '';
+let scriptUrl = '';
+
+function p2(n){return String(n).padStart(2,'0')}
+function todayStr(){
+  const d=new Date();
+  const offset=d.getTimezoneOffset()*60000;
+  const local=new Date(d.getTime()-offset);
+  return local.toISOString().slice(0,10);
+}
+function fmtEl(ms){const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;return`${p2(h)}:${p2(m)}:${p2(sc)}`}
+function fmtDur(ms){const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;if(h>0)return`${h}시간 ${m}분`;if(m>0)return`${m}분 ${sc}초`;return`${sc}초`}
+function fmtTime(d){
+  try{
+    const dt=new Date(d);
+    if(isNaN(dt.getTime()))return'--:--';
+    return p2(dt.getHours())+':'+p2(dt.getMinutes());
+  }catch(e){return'--:--';}
+}
+function dateStr(d){
+  const offset=d.getTimezoneOffset()*60000;
+  const local=new Date(d.getTime()-offset);
+  return local.toISOString().slice(0,10);
+}
+function fmtDate(s){const[,m,d]=s.split('-');return`${m}/${d}`}
+
+// 로컬 저장
+function saveLocal(){try{localStorage.setItem('tf_records',JSON.stringify(records));localStorage.setItem('tf_goals',JSON.stringify(goals));localStorage.setItem('tf_selCat',selCat);}catch(e){}}
+function loadLocal(){
+  try{
+    const r=localStorage.getItem('tf_records');if(r)records=JSON.parse(r);
+    const g=localStorage.getItem('tf_goals');if(g)goals=JSON.parse(g);
+    const sc=localStorage.getItem('tf_selCat');if(sc)selCat=sc;
+    const su=localStorage.getItem('tf_script_url');
+    scriptUrl=su||(SCRIPT_URL_DEFAULT||'');
+  }catch(e){}
+}
+
+// Sync status UI
+function setSyncStatus(state, msg){
+  const dot=document.getElementById('sync-dot');
+  const txt=document.getElementById('sync-msg');
+  dot.className='sync-dot'+(state==='ok'?' ok':state==='err'?' err':state==='ing'?' ing':'');
+  txt.textContent=msg;
+}
+
+// 구글 시트 API 호출
+function xhrGet(url){
+  return new Promise((resolve,reject)=>{
+    const xhr=new XMLHttpRequest();
+    xhr.open('GET',url,true);
+    xhr.onload=()=>{
+      try{resolve(JSON.parse(xhr.responseText));}
+      catch(e){reject(new Error('응답 파싱 실패: '+xhr.responseText.slice(0,100)));}
+    };
+    xhr.onerror=()=>reject(new Error('네트워크 오류'));
+    xhr.ontimeout=()=>reject(new Error('타임아웃'));
+    xhr.timeout=15000;
+    xhr.send();
+  });
+}
+
+async function sheetApi(payload){
+  if(!scriptUrl){setSyncStatus('err','URL 미설정 — 설정 탭에서 URL을 입력하세요');throw new Error('no url');}
+  const p={key:SECRET_KEY,action:payload.action};
+  if(payload.record)p.record=JSON.stringify(payload.record);
+  if(payload.id)p.id=String(payload.id);
+  const url=scriptUrl+'?'+new URLSearchParams(p).toString();
+  const data=await xhrGet(url);
+  if(!data.success)throw new Error(data.error||'실패');
+  return data;
+}
+
+async function saveToSheet(record){
+  try{
+    setSyncStatus('ing','저장 중...');
+    const p={key:SECRET_KEY,action:'save',record:JSON.stringify(record)};
+    const url=scriptUrl+'?'+new URLSearchParams(p).toString();
+    const data=await xhrGet(url);
+    if(data.success){
+      setSyncStatus('ok','구글 시트 연동 중 · 마지막 저장 '+fmtTime(new Date()));
+    } else {
+      setSyncStatus('err','저장 실패 — 로컬에는 저장됨');
+    }
+  }catch(e){
+    setSyncStatus('err','저장 실패 — 로컬에는 저장됨');
+  }
+}
+
+async function syncFromSheet(){
+  try{
+    setSyncStatus('ing','구글 시트에서 불러오는 중...');
+    const data=await sheetApi({action:'getAll'});
+    // 시트 데이터를 앱 형식으로 변환
+    records=data.records.filter(r=>r.id).map(r=>{
+      const cat=CATS.find(c=>c.id===r.catId)||CATS[0];
+      return{
+        id:Number(r.id),catId:r.catId,catLabel:cat.label,
+        catColor:cat.color,catBg:cat.bg,catText:cat.text,
+        memo:r.memo||'',midMemos:[],
+        elapsed:Number(r.elapsed)||0,
+        startedAt:String(r.startedAt||'').trim(),
+        endedAt:String(r.endedAt||'').trim(),
+        date:(function(d){
+          const s=String(d||'').trim();
+          // 이미 YYYY-MM-DD 형식이면 그대로
+          if(/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+          // ISO 형식 (T 포함) → 한국시간 변환
+          if(s.includes('T')||s.includes('Z')){
+            const kst=new Date(new Date(s).getTime()+9*3600000);
+            return kst.toISOString().slice(0,10);
+          }
+          // "Sat Apr 04 2026..." 등 Date.toString() 형식
+          const parsed=new Date(s);
+          if(!isNaN(parsed.getTime())){
+            const kst=new Date(parsed.getTime()+9*3600000);
+            return kst.toISOString().slice(0,10);
+          }
+          return s.slice(0,10);
+        })(r.date)
+      };
+    }).sort((a,b)=>b.id-a.id);
+    saveLocal();
+    renderRecs();renderTodaySum();
+    document.getElementById('rec-count').textContent=records.length;
+    setSyncStatus('ok',`구글 시트 연동 중 · ${records.length}개 불러옴`);
+  }catch(e){
+    setSyncStatus('err','불러오기 실패 — 로컬 데이터 표시 중');
+  }
+}
+
+async function deleteFromSheet(id){
+  try{
+    const p={key:SECRET_KEY,action:'delete',id:String(id)};
+    const url=scriptUrl+'?'+new URLSearchParams(p).toString();
+    await xhrGet(url);
+  }catch(e){console.warn('시트 삭제 실패',e);}
+}
+
+// URL 설정
+async function saveScriptUrl(){
+  const val=document.getElementById('script-url-inp').value.trim();
+  if(!val){document.getElementById('url-status').textContent='URL을 입력해주세요.';return;}
+  scriptUrl=val;
+  try{localStorage.setItem('tf_script_url',val);}catch(e){}
+  document.getElementById('url-status').textContent='저장됨. 연결 테스트 중...';
+  try{
+    const data=await xhrGet(scriptUrl+'?'+new URLSearchParams({key:SECRET_KEY,action:'getAll'}).toString());
+    if(data.success){
+      document.getElementById('url-status').textContent='✅ 연결 성공!';
+      setSyncStatus('ok','구글 시트 연동 완료');
+      syncFromSheet();
+    } else {
+      document.getElementById('url-status').textContent='❌ 연결 실패: '+data.error;
+      setSyncStatus('err','연결 실패');
+    }
+  }catch(e){
+    document.getElementById('url-status').textContent='❌ 연결 실패: '+e.message;
+    setSyncStatus('err','연결 실패 — URL을 확인해주세요');
+  }
+}
+
+// 탭
+function switchTab(t){
+  document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',['record','result','settings'][i]===t));
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',['record','result','settings'][i]===t));
+  if(t==='result')renderResult();
+  if(t==='settings')renderSettings();
+}
+
+// 카테고리
+function renderCats(){
+  const row=document.getElementById('cat-row');row.innerHTML='';
+  CATS.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='cat-pill'+(c.id===selCat?' selected':'');
+    b.textContent=c.label;b.style.background=c.bg;b.style.color=c.text;
+    if(c.id===selCat)b.style.borderColor=c.color;
+    b.onclick=()=>{selCat=c.id;document.getElementById('auto-badge').classList.add('hidden');renderCats()};
+    row.appendChild(b);
+  });
+}
+function renderModalCats(){
+  const row=document.getElementById('modal-cat-row');row.innerHTML='';
+  CATS.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='cat-pill'+(c.id===modalSelCat?' selected':'');
+    b.textContent=c.label;b.style.background=c.bg;b.style.color=c.text;
+    if(c.id===modalSelCat)b.style.borderColor=c.color;
+    b.onclick=()=>{modalSelCat=c.id;renderModalCats()};
+    row.appendChild(b);
+  });
+}
+
+// 타이머
+function startTimer(){
+  if(running)return;running=true;startTime=Date.now()-elapsed;midMemos=[];
+  timerInt=setInterval(()=>{elapsed=Date.now()-startTime;const t=document.getElementById('timer');t.textContent=fmtEl(elapsed);t.classList.add('running');},100);
+  document.getElementById('btn-row').innerHTML='<button class="btn btn-red" onclick="openStopModal()">⏹ 종료</button>';
+  document.getElementById('mid-area').style.display='';
+  document.getElementById('auto-badge').classList.add('hidden');
+}
+
+function openStopModal(){
+  modalSelCat=selCat;
+  document.getElementById('modal-memo').value=document.getElementById('main-memo').value;
+  document.getElementById('modal-time').textContent=fmtEl(elapsed);
+  renderModalCats();
+  document.getElementById('stop-modal').style.display='flex';
+  window._mInt=setInterval(()=>{document.getElementById('modal-time').textContent=fmtEl(Date.now()-startTime);},500);
+}
+function cancelStop(){clearInterval(window._mInt);document.getElementById('stop-modal').style.display='none';}
+
+async function confirmStop(){
+  clearInterval(timerInt);timerInt=null;clearInterval(window._mInt);running=false;
+  const finalElapsed=Date.now()-startTime;
+  const cat=CATS.find(c=>c.id===modalSelCat);
+  const memo=document.getElementById('modal-memo').value.trim();
+  const now=new Date();
+  const record={
+    id:Date.now(),catId:modalSelCat,catLabel:cat.label,catColor:cat.color,catBg:cat.bg,catText:cat.text,
+    memo,midMemos:[...midMemos],elapsed:finalElapsed,
+    startedAt:new Date(startTime).toISOString(),endedAt:now.toISOString(),date:todayStr()
+  };
+  records.unshift(record);
+  selCat=modalSelCat;
+  saveLocal();
+  document.getElementById('stop-modal').style.display='none';
+  elapsed=0;startTime=null;midMemos=[];
+  document.getElementById('timer').textContent='00:00:00';document.getElementById('timer').classList.remove('running');
+  document.getElementById('main-memo').value='';document.getElementById('mid-area').style.display='none';
+  document.getElementById('mid-row').style.display='none';document.getElementById('mid-list').innerHTML='';
+  document.getElementById('btn-row').innerHTML='<button class="btn btn-green" onclick="startTimer()">▶ 시작</button>';
+  document.getElementById('auto-badge').classList.remove('hidden');
+  renderCats();renderRecs();renderTodaySum();
+  // 구글 시트에 비동기 저장
+  await saveToSheet(record);
+}
+
+function showMidMemo(){document.getElementById('mid-row').style.display='flex';document.getElementById('mid-inp').focus()}
+function saveMid(){const v=document.getElementById('mid-inp').value.trim();if(!v)return;midMemos.push({time:fmtEl(elapsed),text:v});document.getElementById('mid-inp').value='';document.getElementById('mid-row').style.display='none';document.getElementById('mid-list').innerHTML=midMemos.map(m=>`<div style="padding:2px 0">• [${m.time}] ${m.text}</div>`).join('');}
+
+function renderTodaySum(){
+  const tr=records.filter(r=>r.date===todayStr());
+  const card=document.getElementById('today-sum');
+  if(!tr.length){card.style.display='none';return}card.style.display='';
+  const totals={};CATS.forEach(c=>totals[c.id]=0);tr.forEach(r=>totals[r.catId]=(totals[r.catId]||0)+r.elapsed);
+  const totalMs=Object.values(totals).reduce((a,b)=>a+b,0);
+  drawDonut('donut-today',totals,90);
+  document.getElementById('legend-today').innerHTML=CATS.filter(c=>totals[c.id]).map(c=>`<div class="leg-item"><div class="leg-dot" style="background:${c.color}"></div><span class="leg-lbl">${c.label}</span><span class="leg-val">${fmtDur(totals[c.id])}</span><span class="leg-pct">${Math.round(totals[c.id]/totalMs*100)}%</span></div>`).join('');
+  document.getElementById('total-today').innerHTML=`총 <span>${fmtDur(totalMs)}</span>`;
+}
+
+function renderRecs(){
+  const tr=records.filter(r=>r.date===todayStr());
+  const list=document.getElementById('rec-list');
+  if(!tr.length){list.innerHTML='<div class="empty">아직 기록이 없습니다</div>';return}
+  list.innerHTML=tr.map(r=>{
+    const mid=r.midMemos&&r.midMemos.length?`<div style="font-size:11px;color:var(--text3);margin-top:2px">${r.midMemos.map(m=>`• [${m.time}] ${m.text}`).join('<br>')}</div>`:'';
+    return`<div class="rec-item" id="ri-${r.id}"><div class="rec-dot" style="background:${r.catColor}"></div>
+      <div class="rec-body"><div class="rec-top"><span class="rec-time">${fmtDur(r.elapsed)}</span>
+      <span class="rec-badge" style="background:${r.catBg};color:${r.catText}">${r.catLabel}</span>
+      <span class="rec-ts">${fmtTime(new Date(r.startedAt))}→${fmtTime(new Date(r.endedAt))}</span></div>
+      <div class="rec-memo" id="md-${r.id}">${r.memo||'<span style="color:var(--text3)">메모 없음</span>'}</div>${mid}</div>
+      <div class="rec-actions"><button class="icon-btn" onclick="editMemo(${r.id})">✏️</button>
+      <button class="icon-btn" onclick="editCat(${r.id})">🏷️</button>
+      <button class="icon-btn" onclick="delRec(${r.id})">🗑️</button></div></div>`;
+  }).join('');
+  document.getElementById('rec-count').textContent=records.length;
+}
+
+function editMemo(id){const r=records.find(x=>x.id===id);document.getElementById(`md-${id}`).innerHTML=`<input class="edit-inp" id="ei-${id}" value="${r.memo||''}"><div style="display:flex;gap:4px;margin-top:4px"><button onclick="saveMemoE(${id})" style="font-size:12px;padding:3px 8px;border-radius:4px;border:0.5px solid var(--border2);background:transparent;cursor:pointer;color:var(--text)">저장</button><button onclick="renderRecs()" style="font-size:12px;padding:3px 8px;border-radius:4px;border:0.5px solid var(--border2);background:transparent;cursor:pointer;color:var(--text2)">취소</button></div>`;document.getElementById(`ei-${id}`).focus();}
+function saveMemoE(id){records.find(x=>x.id===id).memo=document.getElementById(`ei-${id}`).value.trim();saveLocal();renderRecs();}
+function editCat(id){
+  const r=records.find(x=>x.id===id),el=document.getElementById(`ri-${id}`).querySelector('.rec-top');
+  if(document.getElementById(`ce-${id}`))return;
+  el.insertAdjacentHTML('afterend',`<div id="ce-${id}" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${CATS.map(c=>`<button onclick="setCat(${id},'${c.id}')" style="padding:4px 9px;border-radius:12px;font-size:11px;cursor:pointer;background:${c.bg};color:${c.text};border:1.5px solid ${r.catId===c.id?c.color:'transparent'}">${c.label}</button>`).join('')}<button onclick="document.getElementById('ce-${id}').remove()" style="padding:4px 9px;font-size:11px;border-radius:12px;border:0.5px solid var(--border2);background:transparent;cursor:pointer;color:var(--text2)">취소</button></div>`);
+}
+function setCat(id,catId){const r=records.find(x=>x.id===id),c=CATS.find(x=>x.id===catId);Object.assign(r,{catId:c.id,catLabel:c.label,catColor:c.color,catBg:c.bg,catText:c.text});saveLocal();renderRecs();renderTodaySum();}
+async function delRec(id){if(!confirm('삭제할까요?'))return;records=records.filter(x=>x.id!==id);saveLocal();renderRecs();renderTodaySum();await deleteFromSheet(id);}
+function clearToday(){if(!confirm('오늘 기록을 모두 삭제할까요?'))return;const ids=records.filter(r=>r.date===todayStr()).map(r=>r.id);records=records.filter(r=>r.date!==todayStr());saveLocal();renderRecs();renderTodaySum();ids.forEach(id=>deleteFromSheet(id));}
+
+// Result tab
+function setPeriod(p,btn){document.querySelectorAll('.period-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');periodMode=p;document.getElementById('custom-range').style.display=p==='custom'?'flex':'none';if(p!=='custom')renderResult();}
+function getDateRange(){
+  const now=new Date(),y=now.getFullYear(),m=now.getMonth(),d=now.getDate();
+  if(periodMode==='today'){const t=todayStr();return{from:t,to:t,label:'오늘'}}
+  if(periodMode==='week'){const day=now.getDay(),diff=day===0?6:day-1,mon=new Date(y,m,d-diff),sun=new Date(y,m,d-diff+6);return{from:dateStr(mon),to:dateStr(sun),label:'이번 주'}}
+  if(periodMode==='month'){return{from:`${y}-${p2(m+1)}-01`,to:dateStr(new Date(y,m+1,0)),label:'이번 달'}}
+  if(periodMode==='custom'){const f=document.getElementById('d-from').value,t=document.getElementById('d-to').value;if(!f||!t)return null;return{from:f,to:t,label:`${fmtDate(f)} ~ ${fmtDate(t)}`}}
+}
+function renderResult(){
+  const range=getDateRange();if(!range)return;
+  const recs=records.filter(r=>r.date>=range.from&&r.date<=range.to);
+  const totals={};CATS.forEach(c=>totals[c.id]=0);recs.forEach(r=>totals[r.catId]=(totals[r.catId]||0)+r.elapsed);
+  const totalMs=Object.values(totals).reduce((a,b)=>a+b,0);
+  const dc=document.getElementById('result-donut-card');
+  if(!totalMs){dc.style.display='none';document.getElementById('goal-card').style.display='none';document.getElementById('trend-card').style.display='none';document.getElementById('ai-panel').style.display='none';return}
+  dc.style.display='';document.getElementById('result-period-lbl').textContent=range.label+' 카테고리 분포';
+  drawDonut('donut-result',totals,100);
+  document.getElementById('legend-result').innerHTML=CATS.filter(c=>totals[c.id]).map(c=>`<div class="leg-item"><div class="leg-dot" style="background:${c.color}"></div><span class="leg-lbl">${c.label}</span><span class="leg-val">${fmtDur(totals[c.id])}</span><span class="leg-pct">${Math.round(totals[c.id]/totalMs*100)}%</span></div>`).join('');
+  document.getElementById('total-result').innerHTML=`총 기록 <span>${fmtDur(totalMs)}</span>`;
+  document.getElementById('goal-card').style.display='';
+  document.getElementById('goal-bars').innerHTML=CATS.map(c=>{const actual=Math.round(totals[c.id]/totalMs*100),target=goals[c.id]||0;return`<div class="goal-row"><span class="goal-lbl">${c.label}</span><div class="goal-bar-bg"><div class="goal-bar-fill" style="width:${Math.min(actual,100)}%;background:${c.color}"></div><div class="goal-bar-target" style="left:${Math.min(target,100)}%"></div></div><span class="goal-vals">${actual}% / ${target}%</span></div>`;}).join('');
+  if(range.from!==range.to){document.getElementById('trend-card').style.display='';renderTrend(range);}else{document.getElementById('trend-card').style.display='none'}
+  document.getElementById('ai-panel').style.display='';
+  window._lastRange=range;window._lastTotals=totals;window._lastTotal=totalMs;
+}
+function renderTrend(range){
+  const days=[];let cur=new Date(range.from);const end=new Date(range.to);
+  while(cur<=end){days.push(dateStr(cur));cur.setDate(cur.getDate()+1)}
+  const shown=days.slice(-14);
+  document.getElementById('trend-area').innerHTML=CATS.map(c=>{
+    const vals=shown.map(d=>records.filter(r=>r.date===d&&r.catId===c.id).reduce((a,r)=>a+r.elapsed,0));
+    const max=Math.max(...vals)||1;
+    return`<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text2);margin-bottom:3px">${c.label}</div><div class="trend-row">${vals.map((v,i)=>`<div class="trend-bar-wrap"><div class="trend-bar" style="height:${Math.round(v/max*60)+2}px;background:${c.color};opacity:${v?0.85:0.12}"></div><div class="trend-lbl">${shown[i].slice(5)}</div></div>`).join('')}</div></div>`;
+  }).join('');
+}
+function drawDonut(id,totals,size){
+  const c=document.getElementById(id),ctx=c.getContext('2d');c.width=size;c.height=size;ctx.clearRect(0,0,size,size);
+  const cx=size/2,cy=size/2,r=size*0.42,inner=size*0.27,totalMs=Object.values(totals).reduce((a,b)=>a+b,0);
+  if(!totalMs)return;let start=-Math.PI/2;
+  CATS.forEach(cat=>{const v=totals[cat.id];if(!v)return;const angle=v/totalMs*2*Math.PI;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,start+angle);ctx.closePath();ctx.fillStyle=cat.color;ctx.fill();start+=angle;});
+  ctx.beginPath();ctx.arc(cx,cy,inner,0,2*Math.PI);
+  ctx.fillStyle=window.matchMedia('(prefers-color-scheme: dark)').matches?'#1c1c1a':'#ffffff';ctx.fill();
+}
+
+// AI
+function selectGoal(btn,goal){document.querySelectorAll('.improve-opt').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');goalSel=goal;document.getElementById('ai-result').style.display='none';}
+async function runAI(){
+  if(!goalSel){alert('개선 목표를 선택해주세요.');return}
+  const totals=window._lastTotals,totalMs=window._lastTotal,range=window._lastRange;
+  if(!totals||!totalMs){alert('먼저 기간을 선택하고 데이터를 조회해주세요.');return}
+  const resultEl=document.getElementById('ai-result');
+  resultEl.style.display='';resultEl.style.color='var(--text3)';resultEl.style.fontStyle='italic';resultEl.textContent='분석 중...';
+  const breakdown=CATS.map(c=>{const pct=Math.round(totals[c.id]/totalMs*100);return`${c.label}: ${fmtDur(totals[c.id])} (${pct}%, 목표 ${goals[c.id]}%)`}).join('\n');
+  const prompt=`당신은 시간 관리 전문 코치입니다. 다음은 사용자의 ${range.label} 시간 사용 현황입니다:\n\n${breakdown}\n총 기록 시간: ${fmtDur(totalMs)}\n\n사용자의 목표: "${goalSel}"\n\n다음 형식으로 상세한 분석 리포트를 한국어로 작성해주세요:\n\n[현재 상태 진단]\n- 현재 패턴의 문제점 2~3가지를 구체적 수치와 함께\n\n[원인 분석]\n- 왜 이런 패턴이 생겼는지 2가지 추정 원인\n\n[구체적 개선 방안]\n- 즉시 실행 가능한 행동 3가지 (각각 언제, 무엇을, 얼마나)\n\n[30일 실행 계획]\n- 주차별로 단계적으로 실천할 것\n\n간결하고 실용적으로, 수치를 근거로 작성하세요.`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})});
+    const data=await res.json();
+    resultEl.style.fontStyle='normal';resultEl.style.color='var(--text)';
+    resultEl.textContent=data.content?.find(b=>b.type==='text')?.text||'분석 결과를 가져오지 못했습니다.';
+  }catch(e){resultEl.style.fontStyle='normal';resultEl.textContent='오류가 발생했습니다. 잠시 후 다시 시도해주세요.';}
+}
+
+// Settings
+function renderSettings(){
+  const urlInp=document.getElementById('script-url-inp');
+  if(urlInp&&scriptUrl)urlInp.value=scriptUrl;
+  document.getElementById('goal-settings').innerHTML=CATS.map(c=>`<div class="setting-row"><div class="setting-lbl">${c.label}<div class="setting-sub">목표 비중</div></div><input class="pct-inp" type="number" min="0" max="100" id="g-${c.id}" value="${goals[c.id]||0}" oninput="updatePctTotal()"><span style="font-size:13px;color:var(--text2)">%</span></div>`).join('');
+  document.getElementById('rec-count').textContent=records.length;
+  updatePctTotal();
+}
+function updatePctTotal(){
+  const sum=CATS.reduce((a,c)=>{const v=parseInt(document.getElementById(`g-${c.id}`)?.value)||0;return a+v},0);
+  const el=document.getElementById('pct-total');
+  el.textContent=`합계: ${sum}% ${sum===100?'✅':sum>100?'⚠️ 100% 초과':'← 100%가 되도록 설정하세요'}`;
+  el.style.color=sum===100?'var(--green)':sum>100?'var(--red)':'var(--text3)';
+}
+function saveGoals(){CATS.forEach(c=>{goals[c.id]=parseInt(document.getElementById(`g-${c.id}`).value)||0});saveLocal();alert('목표가 저장되었습니다!');}
+
+// 디버그 함수
+async function debugSync(){
+  const area=document.getElementById('debug-area');
+  area.style.display='block';
+  area.textContent='불러오는 중...';
+  try{
+    const data=await sheetApi({action:'getAll'});
+    const today=todayStr();
+    let msg=`오늘 날짜(todayStr): "${today}"
+`;
+    msg+=`불러온 레코드 수: ${data.records.length}개
+
+`;
+    data.records.slice(0,5).forEach((r,i)=>{
+      msg+=`[${i+1}번] date: "${r.date}" (타입:${typeof r.date})
+`;
+      msg+=`     date===today: ${String(r.date).trim()===today}
+`;
+      msg+=`     id: ${r.id}, catId: ${r.catId}
+
+`;
+    });
+    area.textContent=msg;
+  }catch(e){
+    area.textContent='오류: '+e.message;
+  }
+}
+
+// Init
+loadLocal();
+document.getElementById('date-header').textContent=new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+renderCats();renderRecs();renderTodaySum();
+document.getElementById('d-from').value=todayStr();
+document.getElementById('d-to').value=todayStr();
+
+// 직전 카테고리 자동선택 안내
+if(records.length>0)document.getElementById('auto-badge').classList.remove('hidden');
+
+// 구글 시트 연결 확인
+if(scriptUrl){
+  syncFromSheet();
+}else{
+  setSyncStatus('err','URL 미설정 — 설정 탭에서 Apps Script URL을 입력하세요');
+}
+</script>
+</body>
+</html>
