@@ -329,12 +329,15 @@ function fmtDate(s){const[,m,d]=s.split('-');return`${m}/${d}`}
    ★ 기능 3: 뒤로가기 차단
    ============================================================ */
 history.pushState({tf:true},'',location.href);
+history.pushState({tf:true},'',location.href); // 2개 쌓아서 한 번 popstate로 앱 종료 안되게
 window.addEventListener('popstate',()=>{
-  history.pushState({tf:true},'',location.href);
+  history.pushState({tf:true},'',location.href); // 항상 다시 쌓기
   // 모달 열림 → 모달 닫기
   if(document.getElementById('stop-modal').style.display!=='none'){cancelStop();return;}
   // 하위카테고리 표시 중 → 상위로
   if(catNavLevel==='sub'){catNavLevel='top';selSubCat=null;renderCatNav();return;}
+  // 모달 하위카테고리 표시 중
+  if(modalNavLevel==='sub'){modalNavLevel='top';modalSelSubCat=null;renderModalCatNav();return;}
 });
 
 /* ============================================================
@@ -762,7 +765,10 @@ function renderRecs(){
         <div class="rec-memo" id="md-${r.id}">${displayMemo||'<span style="color:var(--text3)">메모 없음</span>'}</div>${mid}
       </div>
       <div class="rec-actions">
-        ${!inProg?`<button class="icon-btn" onclick="editMemo(${r.id})">✏️</button><button class="icon-btn" onclick="editCat(${r.id})">🏷️</button>`:''}
+        ${inProg
+          ?'<button class="icon-btn" onclick="stopFromRec('+r.id+')" style="color:var(--red)">⏹</button>'
+          :'<button class="icon-btn" onclick="editMemo('+r.id+')">✏️</button><button class="icon-btn" onclick="editCat('+r.id+')">🏷️</button>'
+        }
         <button class="icon-btn" onclick="delRec(${r.id})">🗑️</button>
       </div>
     </div>`;
@@ -840,8 +846,30 @@ function applyEditCat(id){
 }
 async function delRec(id){
   if(!confirm('삭제할까요?'))return;
+  // 진행중 기록 삭제 시 타이머도 정리
+  if(id===activeRecordId){clearInterval(timerInt);timerInt=null;running=false;elapsed=0;startTime=null;activeRecordId=null;document.getElementById('timer').textContent='00:00:00';document.getElementById('timer').classList.remove('running');document.getElementById('btn-row').innerHTML='<button class="btn btn-green" onclick="startTimer()">▶ 시작</button>';document.getElementById('mid-area').style.display='none';}
   records=records.filter(x=>x.id!==id);
   saveLocal();renderRecs();renderTodaySum();await deleteFromSheet(id);
+}
+// 오늘의 기록에서 진행중 기록 종료
+function stopFromRec(id){
+  const r=records.find(x=>x.id===id);
+  if(!r)return;
+  // 이 기록이 현재 타이머와 연결된 경우 → 종료 모달 열기
+  if(id===activeRecordId){
+    openStopModal();
+    return;
+  }
+  // 타이머 연결 없이 [진행중]으로 남은 고아 기록 → 지금 시각으로 종료
+  if(!confirm('이 기록을 지금 시각으로 종료할까요?'))return;
+  const now=new Date();
+  const startedAt=new Date(r.startedAt);
+  const finalElapsed=now.getTime()-startedAt.getTime();
+  r.memo=(r.memo||'').replace('[진행중]','').trim();
+  r.elapsed=finalElapsed;
+  r.endedAt=now.toISOString();
+  saveLocal();renderRecs();renderTodaySum();
+  updateToSheet(r);
 }
 function clearToday(){
   if(!confirm('오늘 기록을 모두 삭제할까요?'))return;
@@ -1037,8 +1065,37 @@ renderCatNav();renderRecs();renderTodaySum();renderSubCatSettings();
 document.getElementById('d-from').value=todayStr();
 document.getElementById('d-to').value=todayStr();
 if(records.length>0)document.getElementById('auto-badge').classList.remove('hidden');
+
+// ★ 앱 재시작 시 진행중 기록 복원
+restoreRunningSession();
+
 if(scriptUrl){syncFromSheet();}
 else{setSyncStatus('err','URL 미설정 — 설정 탭에서 Apps Script URL을 입력하세요');}
+
+function restoreRunningSession(){
+  // 로컬에서 [진행중] 기록 찾기
+  const progRec=records.find(r=>r.memo&&r.memo.includes('[진행중]')&&r.date===todayStr());
+  if(!progRec)return;
+  // 진행중 기록이 있으면 타이머 복원
+  activeRecordId=progRec.id;
+  selCat=progRec.catId;
+  selSubCat=progRec.subCatId||null;
+  startTime=new Date(progRec.startedAt).getTime();
+  elapsed=Date.now()-startTime;
+  running=true;
+  // UI 복원
+  timerInt=setInterval(()=>{
+    elapsed=Date.now()-startTime;
+    const t=document.getElementById('timer');
+    t.textContent=fmtEl(elapsed);t.classList.add('running');
+  },100);
+  document.getElementById('timer').classList.add('running');
+  document.getElementById('btn-row').innerHTML='<button class="btn btn-red" onclick="openStopModal()">⏹ 종료</button>';
+  document.getElementById('mid-area').style.display='';
+  document.getElementById('auto-badge').classList.add('hidden');
+  renderCatNav();renderRecs();
+  setSyncStatus('ok','진행중 기록 복원됨 · '+fmtTime(new Date(startTime))+' 시작');
+}
 </script>
 </body>
 </html>
