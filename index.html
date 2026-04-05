@@ -328,16 +328,20 @@ function fmtDate(s){const[,m,d]=s.split('-');return`${m}/${d}`}
 /* ============================================================
    ★ 기능 3: 뒤로가기 차단
    ============================================================ */
-history.pushState({tf:true},'',location.href);
-history.pushState({tf:true},'',location.href); // 2개 쌓아서 한 번 popstate로 앱 종료 안되게
-window.addEventListener('popstate',()=>{
-  history.pushState({tf:true},'',location.href); // 항상 다시 쌓기
+// 뒤로가기 차단: 히스토리를 충분히 쌓아서 앱 종료 방지
+for(let i=0;i<5;i++) history.pushState({tf:true},'',location.href);
+window.addEventListener('popstate',function(){
+  // 즉시 다시 pushState로 막기
+  history.pushState({tf:true},'',location.href);
   // 모달 열림 → 모달 닫기
   if(document.getElementById('stop-modal').style.display!=='none'){cancelStop();return;}
   // 하위카테고리 표시 중 → 상위로
   if(catNavLevel==='sub'){catNavLevel='top';selSubCat=null;renderCatNav();return;}
-  // 모달 하위카테고리 표시 중
   if(modalNavLevel==='sub'){modalNavLevel='top';modalSelSubCat=null;renderModalCatNav();return;}
+});
+// iOS Safari 뒤로가기 캐시(bfcache) 대응
+window.addEventListener('pageshow',function(e){
+  if(e.persisted) history.pushState({tf:true},'',location.href);
 });
 
 /* ============================================================
@@ -453,7 +457,7 @@ async function syncFromSheet(){
   try{
     setSyncStatus('ing','구글 시트에서 불러오는 중...');
     const data=await sheetApi({action:'getAll'});
-    records=data.records.filter(r=>r.id).map(r=>{
+    const newRecords=data.records.filter(r=>r.id).map(r=>{
       const cat=CATS.find(c=>c.id===r.catId)||CATS[0];
       return{
         id:Number(r.id),catId:r.catId,catLabel:r.catLabel||cat.label,
@@ -470,6 +474,15 @@ async function syncFromSheet(){
         })(r.date)
       };
     }).sort((a,b)=>b.id-a.id);
+    // 진행중 기록이 있으면 시트 데이터로 덮어쓰지 않고 로컬 진행중 기록 유지
+    if(running&&activeRecordId){
+      const localProg=records.find(r=>r.id===activeRecordId);
+      const merged=newRecords.filter(r=>r.id!==activeRecordId);
+      if(localProg) merged.unshift(localProg);
+      records=merged;
+    } else {
+      records=newRecords;
+    }
     saveLocal();renderRecs();renderTodaySum();
     document.getElementById('rec-count').textContent=records.length;
     await syncSubCatsFromSheet();
@@ -852,15 +865,15 @@ async function delRec(id){
   saveLocal();renderRecs();renderTodaySum();await deleteFromSheet(id);
 }
 // 오늘의 기록에서 진행중 기록 종료
-function stopFromRec(id){
+async function stopFromRec(id){
   const r=records.find(x=>x.id===id);
   if(!r)return;
-  // 이 기록이 현재 타이머와 연결된 경우 → 종료 모달 열기
+  // 현재 타이머와 연결된 기록 → 종료 모달 열기
   if(id===activeRecordId){
     openStopModal();
     return;
   }
-  // 타이머 연결 없이 [진행중]으로 남은 고아 기록 → 지금 시각으로 종료
+  // 고아 기록(타이머 없이 남은 것) → 지금 시각으로 즉시 종료
   if(!confirm('이 기록을 지금 시각으로 종료할까요?'))return;
   const now=new Date();
   const startedAt=new Date(r.startedAt);
@@ -869,7 +882,13 @@ function stopFromRec(id){
   r.elapsed=finalElapsed;
   r.endedAt=now.toISOString();
   saveLocal();renderRecs();renderTodaySum();
-  updateToSheet(r);
+  // 시트에서 기존 진행중 기록(elapsed=0) 삭제 후 최종 기록 저장
+  if(scriptUrl){
+    try{
+      await deleteFromSheet(r.id);
+      await saveToSheet(r);
+    }catch(e){setSyncStatus('err','시트 저장 실패 — 로컬에는 저장됨');}
+  }
 }
 function clearToday(){
   if(!confirm('오늘 기록을 모두 삭제할까요?'))return;
@@ -1061,29 +1080,24 @@ function saveGoals(){CATS.forEach(c=>{goals[c.id]=parseInt(document.getElementBy
    ============================================================ */
 loadLocal();
 document.getElementById('date-header').textContent=new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+// 진행중 기록 먼저 확인 (로컬 기준)
+restoreRunningSession();
 renderCatNav();renderRecs();renderTodaySum();renderSubCatSettings();
 document.getElementById('d-from').value=todayStr();
 document.getElementById('d-to').value=todayStr();
 if(records.length>0)document.getElementById('auto-badge').classList.remove('hidden');
-
-// ★ 앱 재시작 시 진행중 기록 복원
-restoreRunningSession();
-
 if(scriptUrl){syncFromSheet();}
 else{setSyncStatus('err','URL 미설정 — 설정 탭에서 Apps Script URL을 입력하세요');}
 
 function restoreRunningSession(){
-  // 로컬에서 [진행중] 기록 찾기
   const progRec=records.find(r=>r.memo&&r.memo.includes('[진행중]')&&r.date===todayStr());
   if(!progRec)return;
-  // 진행중 기록이 있으면 타이머 복원
   activeRecordId=progRec.id;
   selCat=progRec.catId;
   selSubCat=progRec.subCatId||null;
   startTime=new Date(progRec.startedAt).getTime();
   elapsed=Date.now()-startTime;
   running=true;
-  // UI 복원
   timerInt=setInterval(()=>{
     elapsed=Date.now()-startTime;
     const t=document.getElementById('timer');
@@ -1093,8 +1107,6 @@ function restoreRunningSession(){
   document.getElementById('btn-row').innerHTML='<button class="btn btn-red" onclick="openStopModal()">⏹ 종료</button>';
   document.getElementById('mid-area').style.display='';
   document.getElementById('auto-badge').classList.add('hidden');
-  renderCatNav();renderRecs();
-  setSyncStatus('ok','진행중 기록 복원됨 · '+fmtTime(new Date(startTime))+' 시작');
 }
 </script>
 </body>
